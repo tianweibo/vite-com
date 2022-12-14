@@ -21,6 +21,7 @@ export default defineConfig({
     build: {
         rollupOptions,
         minify:false,
+        cssCodeSplit: true,   // 追加
         lib: {
           entry: "./src/entry.ts",
           name: "ViteCom",
