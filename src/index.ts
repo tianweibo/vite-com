@@ -1,10 +1,10 @@
-import { createApp } from "vue/dist/vue.esm-browser"
-import ViteCom from "./entry"
-import SButton from "./button";
-import SFCBtton from "./SFCButton.vue";
-import JSXBtton from "./JSXButton.jsx";
+import { createApp } from 'vue/dist/vue.esm-browser'
+import ViteCom from './entry'
+//import SButton from "./button";
+//import SFCBtton from "./SFCButton.vue";
+//import JSXBtton from "./JSXButton.jsx";
 createApp({
-    template:`
+  template: `
         <div>
         <SButton color="blue">蓝色按钮</SButton>
         <SButton color="green">绿色按钮</SButton>
@@ -18,4 +18,6 @@ createApp({
          <SButton color="red" round plain icon="delete" ></SButton>
         </div>
     `
-}).use(ViteCom).mount("#app")
+})
+  .use(ViteCom)
+  .mount('#app')

@@ -9,7 +9,13 @@
     "build": "vite build",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "web-norm": "web-norm",
+    "docs:serve": "vitepress serve docs",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged",
+    "postinstallmac": "git config core.hooksPath .husky && chmod 700 .husky/*",
+    "eslint": "eslint --cache --max-warnings 0  \"{src,mock}/**/*.{vue,ts,js,tsx}\" --fix",
+    "commit": "git add . && git-cz"
   },
   "keywords": [],
   "author": "",
@@ -25,9 +31,37 @@
     "vite": "3.1.0",
     "vitepress": "1.0.0-alpha.4",
     "vitepress-theme-demoblock": "1.4.2",
-    "vitest": "0.21.1"
+    "vitest": "0.21.1",
+    "web-norm": "^1.0.27",
+    "eslint": "^7.25.0",
+    "prettier": "^2.7.1",
+    "eslint-friendly-formatter": "^4.0.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-vue": "^9.2.0",
+    "@typescript-eslint/parser": "^5.30.7",
+    "husky": "^8.0.1",
+    "lint-staged": "^12.4.1",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-angular": "^17.0.3",
+    "commitizen": "^4.2.4",
+    "cz-customizable": "^6.9.0",
+    "@commitlint/cz-commitlint": "^17.0.3",
+    "inquirer": "^8.0.0"
   },
   "dependencies": {
     "vue": "3.2.37"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue,jsx,tsx}": [
+      "npm run eslint"
+    ],
+    "*.{js,jsx,ts,tsx,md,html,css,lees,scss,sass}": "prettier --write"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
   }
 }
